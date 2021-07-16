@@ -12,16 +12,17 @@
 
     <!-- Link the math library -->
     <script type="text/javascript" src="math.js"></script>
-
+    <!-- Link the geometry helpers -->
     <script type="text/javascript" src="geometry.js"></script>
 </head>
 
 <body>
     <!-- The field to define the function  -->
     <div id="input">
-        f(z) = <input type="text" id="userFunction" name="Function" autocomplete="off" defaultValue="z">
+        f(z) = <input type="text" id="userFunction" name="Function" autocomplete="off" value="z">
         <input id="go" type="button" value="Go!">
         <input id="clear" type="button" value="Clear">
+        <script type="text/javascript" src="buttons.js"></script>
     </div>
 
     <div id="graphArea">
@@ -36,18 +37,16 @@
                 boundingbox: [-5, 5, 5, -5],
                 axis: true
             });
-
-            // function clearBoards() {
-            //     zboard.objects.forEach(
-            //         (element) => { board.removeObject(element) });
-            //     wboard.objects.forEach(
-            //         (element) => { board.removeObject(element) });
-            // }
+            zboard.curves = []
+            wboard.curves = []
+            
+            var funcstr = "z";
+            var transform_func = math.parse(funcstr);
 
             function transform(coords) {
-                var X = coords[0] ** 2 - coords[1] ** 2;
-                var Y = 2 * coords[0] * coords[1];
-                return [X, Y];
+                var z = math.complex(coords[0], coords[1]);
+                var w = transform_func.evaluate({z:z});
+                return [math.re(w), math.im(w)];
             }
 
             var z_curve = null;
@@ -68,7 +67,13 @@
             );
             zboard.on(
                 'up',
-                function (evt) { z_curve = null; w_curve = null; }
+                function (evt) { 
+                    // Keep track of the curves so we can delete 
+                    // them later
+                    zboard.curves.push(z_curve);
+                    wboard.curves.push(w_curve);
+                    z_curve = null; 
+                    w_curve = null; }
             );
             zboard.on(
                 'move',
