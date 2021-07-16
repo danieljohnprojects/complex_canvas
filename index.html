@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
     <title>Test</title>
 
     <!-- Link the JSXGraph library -->
@@ -9,62 +10,83 @@
         src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
 
+    <!-- Link the math library -->
+    <script type="text/javascript" src="math.js"></script>
+
+    <script type="text/javascript" src="geometry.js"></script>
 </head>
 
 <body>
-    <div id="inputBox" class="jxgbox" style="width:500px; height:500px;"></div>
-    <div id="outputBox" class="jxgbox" style="width:500px; height:500px;"></div>
-    <script type="text/javascript">
-        var inboard = JXG.JSXGraph.initBoard('inputBox', {
-            boundingbox: [-5, 5, 5, -5],
-            axis: true
-        });
-        var outboard = JXG.JSXGraph.initBoard('outputBox', {
-            boundingbox: [-5, 5, 5, -5],
-            axis: true
-        });
+    <!-- The field to define the function  -->
+    <div id="input">
+        f(z) = <input type="text" id="userFunction" name="Function" autocomplete="off" defaultValue="z">
+        <input id="go" type="button" value="Go!">
+        <input id="clear" type="button" value="Clear">
+    </div>
 
-        function event_coords(evt) {
-            // Note that the event coordinates evt.x and evt.y are relative to the top left corner of the page, rather than the canvas. Need to use evt.layerX and evt.layerY to do it properly.
-            var X = (evt.layerX - inboard.origin.scrCoords[1]) / inboard.unitX;
-            var Y = (inboard.origin.scrCoords[2] - evt.layerY) / inboard.unitY;
-            return [X, Y];
-        }
-        function complex_square(coords) {
-            var X = coords[0] ** 2 - coords[1] ** 2;
-            var Y = -2 * coords[0] * coords[1];
-            return [X, Y];
-        }
+    <div id="graphArea">
+        <div id="inputBox" class="jxgbox" style="width:500px; height:500px;"></div>
+        <div id="outputBox" class="jxgbox" style="width:500px; height:500px;"></div>
+        <script type="text/javascript">
+            var zboard = JXG.JSXGraph.initBoard('inputBox', {
+                boundingbox: [-5, 5, 5, -5],
+                axis: true
+            });
+            var wboard = JXG.JSXGraph.initBoard('outputBox', {
+                boundingbox: [-5, 5, 5, -5],
+                axis: true
+            });
 
+            // function clearBoards() {
+            //     zboard.objects.forEach(
+            //         (element) => { board.removeObject(element) });
+            //     wboard.objects.forEach(
+            //         (element) => { board.removeObject(element) });
+            // }
 
-        var pcoords = [0, 0];
-        var drawing = false;
-        inboard.on(
-            'down',
-            function (evt) { pcoords = event_coords(evt); drawing = true; }
-        );
-        inboard.on(
-            'up',
-            function (evt) { drawing = false; }
-        );
-        inboard.on(
-            'move',
-            function (evt) {
-                if (drawing) {
-                    inboard.create('line', [pcoords, event_coords(evt)], { straightFirst: false, straightLast: false });
-                    outboard.create(
-                        'line', 
-                        [ complex_square(pcoords), complex_square(event_coords(evt)) ], 
-                        {straightFirst: false, straightLast: false });
-                    pcoords = event_coords(evt);
-                }
+            function transform(coords) {
+                var X = coords[0] ** 2 - coords[1] ** 2;
+                var Y = 2 * coords[0] * coords[1];
+                return [X, Y];
             }
-        )
-        // board.on(
-        //     'down',
-        //     function(evt) { console.log(evt) }
-        // );
-    </script>
+
+            var z_curve = null;
+            var w_curve = null;
+
+            zboard.on(
+                'down',
+                function (evt) {
+                    var z = event_coords(evt, zboard);
+                    z_curve = zboard.create(
+                        "curve", 
+                        [[z[0]], [z[1]]],
+                        {highlight: false}
+                    );
+                    var w = transform(z);
+                    w_curve = wboard.create("curve", [[w[0]], [w[1]]]);
+                }
+            );
+            zboard.on(
+                'up',
+                function (evt) { z_curve = null; w_curve = null; }
+            );
+            zboard.on(
+                'move',
+                function (evt) {
+                    if (z_curve !== null) {
+                        var z = event_coords(evt, zboard);
+                        var w = transform(z);
+                        z_curve.dataX.push(z[0]);
+                        z_curve.dataY.push(z[1]);
+                        w_curve.dataX.push(w[0]);
+                        w_curve.dataY.push(w[1]);
+                        zboard.update();
+                        wboard.update();
+                    }
+                }
+            )
+        </script>
+    </div>
 </body>
 
 </html>
