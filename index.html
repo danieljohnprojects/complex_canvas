@@ -20,12 +20,10 @@
     
     <style>
         #inputBox {
-            margin: 10px;
             height: 500px;
             width: 500px;
         }
         #outputBox {
-            margin: 10px;
             height: 500px;
             width: 500px;
         }
@@ -35,19 +33,23 @@
 
 <body>
     <div id="graphArea" class="container-md">
-        <div class="row">
-            <div class="col-lg-auto">
+        <div class="row g-6 justify-content-center">
+            <div class="p-3 col-lg-auto">
                 <div id="inputBox" class="jxgbox""></div>
             </div>
-            <div class="col-lg-auto">
+            <div class="p-3 col-lg-auto">
                 <div id="outputBox" class="jxgbox""></div>
             </div>
         </div>
-        <div class="input-group mb-3">
-            <label id="function-input-label" class="input-group-text" for="function-input">f(z) = </label>
-            <input id="function-input" class="form-control" type="text" autocomplete="off" value="z" aria-label="Function input" aria-describedby="function-input-label">
-            <button id="go-btn" class="btn btn-outline-secondary" type="button">Go!</button>
-            <button id="clear-btn" class="btn btn-outline-secondary" type="button">Clear</button>
+        <div class="row g-6 justify-content-center">
+            <div class="col-10">
+                <div class="input-group">
+                    <label id="function-input-label" class="input-group-text" for="function-input">f(z) = </label>
+                    <input id="function-input" class="form-control" type="text" autocomplete="off" value="z" aria-label="Function input" aria-describedby="function-input-label">
+                    <button id="go-btn" class="btn btn-outline-secondary" type="button">Go!</button>
+                    <button id="clear-btn" class="btn btn-outline-secondary" type="button">Clear</button>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Link the graphing behavior -->
