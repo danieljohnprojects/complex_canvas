@@ -24,12 +24,6 @@ function setActiveFunction() {
     }
 }
 
-// function setActiveFunctionOnEnter(e) {
-//     if (e.key === 'enter') {
-//         setActiveFunction(element);
-//     }
-// }
-
 document.getElementById("clear-btn").onclick = function () { clearBoard(zboard); clearBoard(wboard); }
 
 document.getElementById("go-btn").onclick = function () { setActiveFunction(); }
