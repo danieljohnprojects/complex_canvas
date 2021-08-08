@@ -29,3 +29,8 @@ document.getElementById("clear-btn").onclick = function () { clearBoard(zboard);
 document.getElementById("go-btn").onclick = function () { setActiveFunction(); }
 
 document.getElementById("function-input").onkeypress = function (e) { if (e.code == "Enter") {setActiveFunction();} }
+
+var colorOptions = document.getElementsByName("colorOptions");
+for (let option of colorOptions) {
+    option.addEventListener("change", function() { strokeColor = option.value; });
+}

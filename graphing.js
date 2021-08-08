@@ -20,6 +20,7 @@ function transform(coords) {
 
 var z_curve = null;
 var w_curve = null;
+var strokeColor = "blue"; // Set by radio buttons in buttons.js
 
 zboard.on(
     'down',
@@ -28,10 +29,18 @@ zboard.on(
         z_curve = zboard.create(
             "curve", 
             [[z[0]], [z[1]]],
-            {highlight: false}
-        );
+            {highlight: false,
+            strokeColor: strokeColor,
+            strokeWidth: 1
+        });
         var w = transform(z);
-        w_curve = wboard.create("curve", [[w[0]], [w[1]]]);
+        w_curve = wboard.create(
+            "curve", 
+            [[w[0]], [w[1]]],
+            {
+                strokeColor: strokeColor,
+                strokeWidth: 1
+            });
     }
 );
 zboard.on(
