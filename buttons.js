@@ -8,7 +8,20 @@ function clearBoard(board) {
  */
 function setActiveFunction() {
     funcstr = document.getElementById("function-input").value;
-    transform_func = math.parse(funcstr);
+    try {
+        transform_func = math.parse(funcstr);
+        document.querySelector("#activeFunctionReadout").innerHTML = 
+            "Active function: \\(f(z) = " + funcstr + "\\)";
+        MathJax.typeset();
+    }
+    catch(err) {
+        console.log("Invalid function.");
+        placeholder = document.getElementById("alertPlaceholder");
+        var wrapper = document.createElement('div');
+        wrapper.innerHTML = '<div class="alert alert-warning alert-dismissible" role="alert" id="invalidFunctionAlert">Invalid function<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+
+        placeholder.append(wrapper);
+    }
 }
 
 // function setActiveFunctionOnEnter(e) {
