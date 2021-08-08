@@ -63,7 +63,7 @@
                     <input id="function-input" class="form-control" type="text" autocomplete="off" value="z"
                     aria-label="Function input" aria-describedby="function-input-label">
                     <button id="go-btn" class="btn btn-outline-secondary" type="button">Go!</button>
-                    <button id="clear-btn" class="btn btn-outline-secondary" type="button">Clear</button>
+                    <button id="clear-btn" class="btn btn-outline-danger" type="button">Clear</button>
                 </div>
             </div>
         </div>
@@ -74,7 +74,8 @@
         </div>
         <div class="row p-3 justify-content-center">
             <div class="col-auto">
-                <!-- <div class="form-check form-check-inline"> -->
+                <!-- <label id="colorOptions-label" class="input-group-text">Stroke colour: </label> -->
+
                 <input type="radio" class="btn-check" name="colorOptions" id="colorBlue" value="blue" autocomplete="off" checked>
                 <label class="btn btn-outline-primary" for="colorBlue">Blue</label>
 
@@ -84,22 +85,9 @@
                 <input type="radio" class="btn-check" name="colorOptions" id="colorGreen" value="green" autocomplete="off">
                 <label class="btn btn-outline-success" for="colorGreen">Green</label>
 
-                <!-- <input type="radio" class="btn-check" name="colorOptions" id="colorYellow" value="yellow" autocomplete="off">
-                <label class="btn btn-outline-warning" for="colorYellow">Yellow</label> -->
-
                 <input type="radio" class="btn-check" name="colorOptions" id="colorBlack" value="black" autocomplete="off">
                 <label class="btn btn-outline-dark" for="colorBlack">Black</label>
             </div>
-                    <!-- <input class="form-check-input" type="radio" name="colorOptions" id="color-blue" value="blue">
-                    <label class="form-check-label" for="color-blue">Blue</label> -->
-                  <!-- <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="colorOptions" id="color-red" value="red">
-                    <label class="form-check-label" for="inlineRadio2">Red</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="colorOptions" id="color-green" value="green">
-                    <label class="form-check-label" for="inlineRadio3">Green</label>
-                  </div> -->
         </div>
     </div>
     <!-- Link the graphing behavior -->

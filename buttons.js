@@ -1,8 +1,11 @@
+// Clear button functionality
 function clearBoard(board) {
     board.curves.forEach(
         (element) => { board.removeObject(element) });
 }
+document.getElementById("clear-btn").onclick = function () { clearBoard(zboard); clearBoard(wboard); }
 
+// Go button funcitonality
 /**
  * Sets the active function to the value contained in input element.
  */
@@ -23,13 +26,10 @@ function setActiveFunction() {
         placeholder.append(wrapper);
     }
 }
-
-document.getElementById("clear-btn").onclick = function () { clearBoard(zboard); clearBoard(wboard); }
-
 document.getElementById("go-btn").onclick = function () { setActiveFunction(); }
-
 document.getElementById("function-input").onkeypress = function (e) { if (e.code == "Enter") {setActiveFunction();} }
 
+// Colour choice functionality
 var colorOptions = document.getElementsByName("colorOptions");
 for (let option of colorOptions) {
     option.addEventListener("change", function() { strokeColor = option.value; });
