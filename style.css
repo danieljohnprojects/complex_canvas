@@ -1,10 +1,12 @@
 #inputBox {
-    height: 500px;
-    width: 500px;
-    cursor: crosshair;
+  max-width: 500px;
+  aspect-ratio: 1;
+  cursor: crosshair;
+  margin: auto;
 }
 
 #outputBox {
-    height: 500px;
-    width: 500px;
+  max-width: 500px;
+  aspect-ratio: 1;
+  margin: auto;
 }
