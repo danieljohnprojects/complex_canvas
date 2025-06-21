@@ -1,0 +1,63 @@
+:root {
+  --form-border-color: #727272;
+  --highlight-color: #b900008b;
+}
+
+#function-input-form {
+  grid-area: function-input;
+  display: flex;
+  text-align: center;
+  justify-self: center;
+  width: clamp(20em, 70%, 60em);
+}
+
+#function-input-form * {
+  border-radius: 0;
+}
+
+#function-input-form > :first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+#function-input-form > :last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+#function-input-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 0.375em;
+  padding-inline: 0.75em;
+  background-color: #e9ecef;
+  border: 1px solid var(--form-border-color);
+}
+
+#function-input {
+  padding-block: 0.375em;
+  padding-inline: 0.75em;
+  border: 1px solid var(--form-border-color);
+  flex: 1 1 0;
+  min-width: 7em;
+}
+
+#go-button {
+  padding-block: 0.375em;
+  padding-inline: 0.75em;
+  cursor: pointer;
+  border: 1px solid var(--form-border-color);
+}
+
+#go-button:hover {
+  color: white;
+  background-color: var(--highlight-color);
+}
+
+.focus {
+  transition: box-shadow 200ms;
+}
+
+.focus:focus-visible {
+  outline: 0;
+  box-shadow: 0 0 0 3px var(--highlight-color);
+}

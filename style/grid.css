@@ -1,0 +1,25 @@
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "function-input function-input"
+    "alert alert"
+    "active-function-readout active-function-readout"
+    "input output"
+    "colour-picker colour-picker";
+  gap: 5px;
+}
+
+#alert-placeholder {
+  grid-area: alert;
+}
+
+#active-function-readout {
+  grid-area: active-function-readout;
+  text-align: center;
+}
+
+#colour-picker {
+  grid-area: colour-picker;
+  text-align: center;
+}
