@@ -53,7 +53,7 @@
       </header>
       <main>
         <div class="container grid">
-          <form id="function-input-form">
+          <form name="function-input" id="function-input-form">
             <label id="function-input-label" class="focus" for="function-input"
               >\(f(z) =\)</label
             >
@@ -68,58 +68,90 @@
             <button id="go-button" class="focus" type="submit">Go!</button>
           </form>
           <div id="alert-placeholder"></div>
-          <p id="active-function-readout">Active function: \(f(z) = z\)</p>
+          <div id="drawing-controls">
+            <form name="colour-picker" id="colour-picker-form">
+              <label id="blue">
+                <input
+                  type="radio"
+                  name="color"
+                  value="blue"
+                  autocomplete="off"
+                  checked
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 260">
+                  <path
+                    d="M 50 10 L 120 10 L 120 60 C 120 60 150 105 160 125 C 135 150 91.288 250.083 85 250 C 78.712 249.917 35 150 10 125 C 20 105 50 60 50 60 L 50 10 Z"
+                  />
+                  <ellipse cx="85" cy="125" rx="15" ry="15" />
+                  <line x1="85" y1="140" x2="85" y2="250" />
+                  <line x1="50" y1="60" x2="120" y2="60" />
+                </svg>
+              </label>
+
+              <label id="red">
+                <input
+                  type="radio"
+                  name="color"
+                  value="red"
+                  autocomplete="off"
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 260">
+                  <path
+                    d="M 50 10 L 120 10 L 120 60 C 120 60 150 105 160 125 C 135 150 91.288 250.083 85 250 C 78.712 249.917 35 150 10 125 C 20 105 50 60 50 60 L 50 10 Z"
+                  />
+                  <ellipse cx="85" cy="125" rx="15" ry="15" />
+                  <line x1="85" y1="140" x2="85" y2="250" />
+                  <line x1="50" y1="60" x2="120" y2="60" />
+                </svg>
+              </label>
+
+              <label id="green">
+                <input
+                  type="radio"
+                  name="color"
+                  value="green"
+                  autocomplete="off"
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 260">
+                  <path
+                    d="M 50 10 L 120 10 L 120 60 C 120 60 150 105 160 125 C 135 150 91.288 250.083 85 250 C 78.712 249.917 35 150 10 125 C 20 105 50 60 50 60 L 50 10 Z"
+                  />
+                  <ellipse cx="85" cy="125" rx="15" ry="15" />
+                  <line x1="85" y1="140" x2="85" y2="250" />
+                  <line x1="50" y1="60" x2="120" y2="60" />
+                </svg>
+              </label>
+
+              <label id="black">
+                <input
+                  type="radio"
+                  name="color"
+                  value="black"
+                  autocomplete="off"
+                />
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 260">
+                  <path
+                    d="M 50 10 L 120 10 L 120 60 C 120 60 150 105 160 125 C 135 150 91.288 250.083 85 250 C 78.712 249.917 35 150 10 125 C 20 105 50 60 50 60 L 50 10 Z"
+                  />
+                  <ellipse cx="85" cy="125" rx="15" ry="15" />
+                  <line x1="85" y1="140" x2="85" y2="250" />
+                  <line x1="50" y1="60" x2="120" y2="60" />
+                </svg>
+              </label>
+            </form>
+            <button
+              id="clear-button"
+              class="btn btn-outline-danger"
+              type="button"
+            >
+              Clear
+            </button>
+          </div>
           <div id="inputBox" class="jxgbox"></div>
           <div id="outputBox" class="jxgbox"></div>
-          <div id="colour-picker">
-            <!-- <label id="colorOptions-label" class="input-group-text">Stroke colour: </label> -->
-
-            <input
-              type="radio"
-              class="btn-check"
-              name="colorOptions"
-              id="colorBlue"
-              value="blue"
-              autocomplete="off"
-              checked
-            />
-            <label class="btn btn-outline-primary" for="colorBlue">Blue</label>
-
-            <input
-              type="radio"
-              class="btn-check"
-              name="colorOptions"
-              id="colorRed"
-              value="red"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-danger" for="colorRed">Red</label>
-
-            <input
-              type="radio"
-              class="btn-check"
-              name="colorOptions"
-              id="colorGreen"
-              value="green"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-success" for="colorGreen"
-              >Green</label
-            >
-
-            <input
-              type="radio"
-              class="btn-check"
-              name="colorOptions"
-              id="colorBlack"
-              value="black"
-              autocomplete="off"
-            />
-            <label class="btn btn-outline-dark" for="colorBlack">Black</label>
+          <div id="active-function-readout">
+            <p>Active function: \(f(z) = z\)</p>
           </div>
-          <button id="clear-btn" class="btn btn-outline-danger" type="button">
-            Clear
-          </button>
         </div>
       </main>
     </div>

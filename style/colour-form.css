@@ -1,0 +1,64 @@
+#colour-picker-form {
+  display: flex;
+  align-items: center;
+}
+
+#colour-picker-form input {
+  display: none;
+}
+
+#colour-picker-form label {
+  cursor: pointer;
+  outline: 1px solid #727272;
+
+}
+
+#colour-picker-form label:first-child {
+  border-radius: 8px 0 0 8px;
+}
+
+#colour-picker-form label:last-child {
+  border-radius: 0 8px 8px 0;
+}
+
+#colour-picker-form svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke-width: 10px;
+  stroke-linejoin: round;
+  transform: matrix(0.707107, 0.707107, -0.707107, 0.707107, 0, 0);
+}
+
+#colour-picker-form label:has(input:checked) svg {
+  stroke: white
+}
+
+#blue:has(input:checked) {
+  background-color: blue;
+}
+#red:has(input:checked) {
+  background-color: red;
+}
+#green:has(input:checked) {
+  background-color: green;
+}
+#black:has(input:checked) {
+  background-color: black;
+}
+
+#blue svg {
+  stroke: blue;
+}
+
+#red svg {
+  stroke: red;
+}
+
+#green svg {
+  stroke: green;
+}
+
+#black svg {
+  stroke: black;
+}

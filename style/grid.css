@@ -4,9 +4,9 @@
   grid-template-areas:
     "function-input function-input"
     "alert alert"
-    "active-function-readout active-function-readout"
+    "drawing-controls drawing-controls"
     "input output"
-    "colour-picker colour-picker";
+    "active-function-readout active-function-readout";
   gap: 5px;
 }
 

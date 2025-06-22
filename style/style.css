@@ -1,5 +1,6 @@
 @import url("./grid.css");
-@import url("./form.css");
+@import url("./input-form.css");
+@import url("./colour-form.css");
 
 :root {
   --title-size: 2rem;
@@ -73,4 +74,11 @@ main {
   width: min(100%, 500px);
   aspect-ratio: 1;
   grid-area: output;
+}
+
+#drawing-controls {
+  grid-area: drawing-controls;
+  display: flex;
+  justify-content: center;
+  gap: 3em;
 }
