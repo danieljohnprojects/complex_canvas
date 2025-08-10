@@ -21,39 +21,28 @@
     <!-- Link the geometry helpers -->
     <script type="text/javascript" src="lib/geometry.js"></script>
     <!-- Link the latex libraries -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script
       id="MathJax-script"
       async
       src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
     ></script>
 
-    <!-- Bootstrap CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
-    <!-- Bootstrap Javascript -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
-      crossorigin="anonymous"
-    ></script>
-
     <link rel="stylesheet" type="text/css" href="style/style.css" />
     <title>Visualising complex functions</title>
   </head>
 
-  <body>
-    <div class="full-screen page-layout">
+  <body theme="sand">
+    <div class="full-screen column-page-layout">
       <header>
         <h1>Visualising complex functions</h1>
       </header>
       <main>
-        <div class="container grid">
-          <form name="function-input" id="function-input-form">
+        <div class="readable-container grid">
+          <form
+            name="function-input"
+            class="round-end-container"
+            id="function-input-form"
+          >
             <label id="function-input-label" class="focus" for="function-input"
               >\(f(z) =\)</label
             >
@@ -65,11 +54,19 @@
               value="z"
               placeholder="enter a function of z"
             />
-            <button id="go-button" class="focus" type="submit">Go!</button>
+            <button id="go-button" class="button focus" type="submit">
+              Go!
+            </button>
           </form>
-          <div id="alert-placeholder"></div>
+          <div id="alert-placeholder">
+            <div class="toast">⚠ Invalid function ⚠</div>
+          </div>
           <div id="drawing-controls">
-            <form name="colour-picker" id="colour-picker-form">
+            <form
+              name="colour-picker"
+              id="colour-picker-form"
+              class="round-end-container"
+            >
               <label id="blue">
                 <input
                   type="radio"
@@ -139,16 +136,18 @@
                 </svg>
               </label>
             </form>
-            <button
-              id="clear-button"
-              class="btn btn-outline-danger"
-              type="button"
-            >
+            <button id="clear-button" class="button" type="button">
               Clear
             </button>
           </div>
-          <div id="inputBox" class="jxgbox"></div>
-          <div id="outputBox" class="jxgbox"></div>
+          <div id="input-box-container" class="graph-container">
+            <div id="input-box" class="jxgbox"></div>
+            <h2>Input plane</h2>
+          </div>
+          <div id="output-box-container" class="graph-container">
+            <div id="output-box" class="jxgbox"></div>
+            <h2>Output plane</h2>
+          </div>
           <div id="active-function-readout">
             <p>Active function: \(f(z) = z\)</p>
           </div>
