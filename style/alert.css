@@ -1,0 +1,17 @@
+#alert-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toast {
+  opacity: 0;
+  background-color: var(--accent-color);
+  padding: 5px;
+  border-radius: var(--rounded);
+  transition: opacity, 400ms;
+}
+
+.toast.show {
+  opacity: 1;
+}

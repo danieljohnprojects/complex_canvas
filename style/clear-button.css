@@ -1,0 +1,19 @@
+#clear-button {
+  padding-block: 0.375em;
+  padding-inline: 0.75em;
+  cursor: pointer;
+  border: 1px solid red;
+  color: currentColor;
+  border-radius: var(--rounded);
+  background-color: var(--surface-color);
+}
+
+#clear-button:hover {
+  color: white;
+  background-color: red;
+}
+
+#clear-button:focus-visible {  
+  box-shadow: 0 0 0 3px var(--accent-color);
+  outline: none;
+}

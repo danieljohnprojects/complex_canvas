@@ -4,26 +4,30 @@
 }
 
 #colour-picker-form input {
-  display: none;
+  /* display: none; */
+  position: absolute;
+  z-index: -10;
 }
 
 #colour-picker-form label {
   cursor: pointer;
-  outline: 1px solid #727272;
-
+  outline: 1px solid currentColor;
+  position: relative;
+  background-color: var(--background-color);
 }
 
-#colour-picker-form label:first-child {
-  border-radius: 8px 0 0 8px;
+#colour-picker-form input:focus-visible {
+  outline: none;
 }
 
-#colour-picker-form label:last-child {
-  border-radius: 0 8px 8px 0;
+#colour-picker-form label:has(input:focus-visible) {
+  box-shadow: 0 0 0 3px var(--accent-color);
 }
 
 #colour-picker-form svg {
   width: 40px;
   height: 40px;
+  margin-bottom: -4px;
   fill: none;
   stroke-width: 10px;
   stroke-linejoin: round;
@@ -32,6 +36,10 @@
 
 #colour-picker-form label:has(input:checked) svg {
   stroke: white
+}
+
+#colour-picker-form label:has(input:not(:checked)):hover {
+  box-shadow: 0 0 0 3px var(--accent-color);
 }
 
 #blue:has(input:checked) {

@@ -1,13 +1,13 @@
+@import url("./containers.css");
+@import url("./canvases.css");
 @import url("./grid.css");
 @import url("./input-form.css");
-@import url("./colour-form.css");
+@import url("./colour-picker-form.css");
+@import url("./clear-button.css");
+@import url("./alert.css");
 
 :root {
-  --title-size: 2rem;
-  --title-line-height: 1.5;
-  --header-padding: 5px;
-  --header-height: calc(var(--title-size) + 2 * var(--header-padding));
-  --main-height: calc(100dvh - var(--header-height));
+  --rounded: 2px;
 }
 
 * {
@@ -17,6 +17,31 @@
 body {
   font-family: system-ui;
   margin: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body ::selection {
+  background-color: var(--accent-color);
+}
+
+body[theme="blue"] {
+  --background-color: #232946;
+  --primary-color: #b8c1ec;
+  --text-color: #b8c1ec;
+  --header-text-color: #fffffe;
+  --surface-color: #264d6c;
+  --accent-color: #5b9f66;
+}
+
+body[theme="sand"] {
+  --background-color: #fef6e4;
+  --header-background-color: #fed1ae;
+  --primary-color: #172c66;
+  --text-color: #172c66;
+  --header-text-color: #001858;
+  --surface-color: #f3d2c1;
+  --accent-color: #f582ae;
 }
 
 input,
@@ -24,6 +49,13 @@ textarea,
 select,
 button {
   font: inherit;
+  color: inherit;
+}
+
+.button {
+  all: unset;
+  outline: revert;
+  box-sizing: border-box;
 }
 
 .full-screen {
@@ -33,47 +65,29 @@ button {
   padding: 0;
 }
 
-.page-layout {
+.column-page-layout {
   display: flex;
   flex-direction: column;
 }
 
-h1 {
-  margin: 0;
-  font-size: var(--title-size);
-  font-weight: 500;
-  line-height: 1.5;
-}
-
 header {
   text-align: center;
-  background-color: #333;
-  color: #e0e0e0;
-  padding: var(--header-padding);
+  background-color: var(--header-background-color);
+  color: var(--header-text-color);
+  padding: 5px;
+  border-bottom: 1px solid currentColor;
 }
 
 main {
   padding-top: 10px;
-  background-color: #eeeeee;
   flex: 1;
 }
 
-.container {
-  max-width: 60rem;
-  margin-inline: auto;
-}
-
-#inputBox {
-  width: min(100%, 500px);
-  aspect-ratio: 1;
-  cursor: crosshair;
-  grid-area: input;
-}
-
-#outputBox {
-  width: min(100%, 500px);
-  aspect-ratio: 1;
-  grid-area: output;
+h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 1.5;
 }
 
 #drawing-controls {

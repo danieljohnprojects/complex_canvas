@@ -1,0 +1,31 @@
+{
+  "name": "complex_canvas",
+  "version": "2.0.0",
+  "description": "Visualise functions of complex variables",
+  "homepage": "https://github.com/danieljohnprojects/complex_canvas#readme",
+  "bugs": {
+    "url": "https://github.com/danieljohnprojects/complex_canvas/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danieljohnprojects/complex_canvas.git"
+  },
+  "license": "ISC",
+  "author": "Daniel John",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "jsxgraph": "^1.11.1",
+    "mathjax": "^3.2.2",
+    "mathjs": "^14.5.2"
+  }
+}

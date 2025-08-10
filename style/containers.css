@@ -1,0 +1,20 @@
+.readable-container {
+  max-width: 60rem;
+  margin-inline: auto;
+}
+
+.round-end-container > * {
+  border-radius: 0;
+}
+
+.round-end-container > :first-child {
+  border-radius: var(--rounded) 0 0 var(--rounded);
+}
+
+.round-end-container > :last-child {
+  border-radius: 0 var(--rounded) var(--rounded) 0;
+}
+
+.round-end-container > :only-child {
+  border-radius: var(--rounded);
+}
